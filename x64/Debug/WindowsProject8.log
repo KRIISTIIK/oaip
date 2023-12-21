@@ -1,0 +1,3 @@
+﻿  WindowsProject8.cpp
+D:\WindowsProject8\WindowsProject8.cpp(204): warning C4715: PlayerCoord: значение возвращается не при всех путях выполнения
+  WindowsProject8.vcxproj -> D:\WindowsProject8\x64\Debug\WindowsProject8.exe
