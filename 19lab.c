@@ -35,7 +35,7 @@ void task1() {
     for (int i = 0; i < n; i++) {
         printf("a[%d]: %d\n", i, a[i]);
     }
-    printf("ср знач: %f\n\n", av);
+    printf("СЃСЂ Р·РЅР°С‡: %f\n\n", av);
 
     int c = 0;
     for (int i = 0; i < n; i++) {
@@ -78,7 +78,7 @@ void task2() {
     }
 
     FILE* fout = fopen("out2.txt", "wt");
-    fprintf(fout, "ср знач: %f\n", av);
+    fprintf(fout, "СЃСЂ Р·РЅР°С‡: %f\n", av);
     fprintf(fout, "%d\n", c);
     for (int i = 0; i < n; i++) {
         if (a1[i] > av) {
@@ -114,7 +114,7 @@ void task3() {
     }
 
     FILE* fout = fopen("out3.txt", "wt");
-    fprintf(fout, "ср знач: %f\n", av);
+    fprintf(fout, "СЃСЂ Р·РЅР°С‡: %f\n", av);
     fprintf(fout, "%d\n", c);
     for (int i = 0; i < n; i++) {
         if (a1[i] < av && a1[i] > 0) {
@@ -161,7 +161,7 @@ void main() {
     SetConsoleOutputCP(1251);
 
     int task;
-    printf("Номер задачи - ");
+    printf("РќРѕРјРµСЂ Р·Р°РґР°С‡Рё - ");
     scanf_s("%d", &task);
 
     switch (task) {
