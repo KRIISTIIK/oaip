@@ -5,7 +5,6 @@
 #include "WindowsProject8.h"
 
 
-
 #define N 10
 #define M 15
 // Коды ячеек:
@@ -38,7 +37,7 @@ void drawMap(HDC hdc) {
     // кисть для стены
     HBRUSH hBrushWall = CreateSolidBrush(RGB(0, 0, 0)); // черный
     // кисть для игрока
-    HBRUSH hBrushMan = CreateSolidBrush(RGB(10, 186, 181)); // синий
+    HBRUSH hBrushMan = CreateSolidBrush(RGB(129, 216, 208)); // синий
 
     // Коды ячеек:
     // 0 - свободна
@@ -67,16 +66,53 @@ void drawMap(HDC hdc) {
         DeleteObject(brush[i]);
 }
 
+int map_size = 150;
+
+bool in_bounds(int x, int y) {
+    return x >= 0 && y >= 0 && x < map_size && y < map_size;
+}
+COORD PlayerCoord() {
+    int i, j;
+    COORD c;
+    for (i = 0; i < map_size; i++) {
+        for (j = 0; j < map_size; j++) {
+            if (map[i][j] == 1) {
+                c.X = i;
+                c.Y = j;
+                return c;
+            }
+        }
+    }
+}
+
+
 
 void doMidasHand(int i, int j) {
     if (map[i][j] == 2) {
-        map[i][j] = 1;
+        map[i][j] = 3;
         if (i > 0) doMidasHand(i - 1, j);
         if (i < N - 1) doMidasHand(i + 1, j);
         if (j > 0) doMidasHand(i, j - 1);
         if (i < M - 1) doMidasHand(i, j + 1);
     }
 }
+//void midasHandToRight() {
+//    COORD player = PlayerCoord();
+//    if (in_bounds(player.X, player.Y + 1) && map[player.X][player.Y + 1] == 2) {
+//        doMidasHand(player.X, player.Y + 1);
+//    }
+//}
+
+void midasHandToRight() {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M - 1; j++) {
+            if (map[i][j] == 1 && map[i][j + 1] == 2) {
+                doMidasHand(i, j + 1);
+            }
+        }
+    }
+}
+
 int steps = 0;
 int gold = 0;
 
@@ -175,33 +211,7 @@ void Down() {
     }
 }
 
-void midasHandToRight() {
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < M - 1; ++j) {
-            if (map[i][j] == 3 && map[i][j + 1] == 2) {
-                doMidasHand(i, j + 1);
-            }
-        }
-    }
-}
-int map_size = 150;
 
-bool in_bounds(int x, int y) {
-    return x >= 0 && y >= 0 && x < map_size && y < map_size;
-}
-COORD PlayerCoord() {
-    int i, j;
-    COORD c;
-    for (i = 0; i < map_size; i++) {
-        for (j = 0; j < map_size; j++) {
-            if (map[i][j] == 1) {
-                c.X = i;
-                c.Y = j;
-                return c;
-            }
-        }
-    }
-}
 
 void MovePlayer(int dir) {
     /*
@@ -245,8 +255,6 @@ void CreateGold() {
 #define MAX_LOADSTRING 100
 #define MAP_SIZE 1024
 #define CELL_SIZE 5; 
-
-
 
 
 // Глобальные переменные:
