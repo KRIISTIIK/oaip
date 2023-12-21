@@ -16,7 +16,7 @@ void main() {
     SetConsoleOutputCP(1251);
 
     int task;
-    printf("номер задачи: ");
+    printf("РЅРѕРјРµСЂ Р·Р°РґР°С‡Рё: ");
     scanf_s("%d", &task);
 
     switch (task) {
@@ -33,18 +33,18 @@ void task1() {
     FILE* fin = fopen("in1.txt", "rt");
     fscanf(fin, "%d%d%d", &a, &b, &c);
     if (fin == NULL) {
-        printf("входной не найден");
+        printf("РІС…РѕРґРЅРѕР№ РЅРµ РЅР°Р№РґРµРЅ");
         return;
     }
     fclose(fin);
 
-    printf("ввели: %d, %d, %d\n", a, b, c);
+    printf("РІРІРµР»Рё: %d, %d, %d\n", a, b, c);
     p = a * b * c;
     printf("p = %d\n", p);
 
     FILE* fout = fopen("out1.txt", "wt");
     if (fout == NULL) {
-        printf("выходной не создан");
+        printf("РІС‹С…РѕРґРЅРѕР№ РЅРµ СЃРѕР·РґР°РЅ");
         return;
     }
     fprintf(fout, "%d", p);
@@ -56,20 +56,20 @@ void task2() {
 
     FILE* fin = fopen("in2.txt", "rt");
     if (fin == NULL) {
-        printf("входной не найден");
+        printf("РІС…РѕРґРЅРѕР№ РЅРµ РЅР°Р№РґРµРЅ");
         return;
     }
     fscanf(fin, "%d%d%d%d%d", &a, &b, &c, &d, &e);
     fclose(fin);
 
-    printf("ввели: %d, %d, %d, %d, %d\n", a, b, c, d, e);
+    printf("РІРІРµР»Рё: %d, %d, %d, %d, %d\n", a, b, c, d, e);
 
     summ = a + b + c + d + e;
-    printf("сумма равна %d\n", summ);
+    printf("СЃСѓРјРјР° СЂР°РІРЅР° %d\n", summ);
 
     FILE* fout = fopen("out2.txt", "wt");
     if (fout == NULL) {
-        printf("выходной не создан");
+        printf("РІС‹С…РѕРґРЅРѕР№ РЅРµ СЃРѕР·РґР°РЅ");
         return;
     }
     fprintf(fout, "%d", summ);
@@ -83,7 +83,7 @@ void task3() {
 
     FILE* fin = fopen("in3.txt", "rt");
     if (fin == NULL) {
-        printf("входной не найден");
+        printf("РІС…РѕРґРЅРѕР№ РЅРµ РЅР°Р№РґРµРЅ");
         return;
     }
     fscanf(fin, "%d\n", &n);
@@ -98,7 +98,7 @@ void task3() {
         av += a[i];
     }
     av = av / n;
-    printf("ср знач: %f\n\n", av);
+    printf("СЃСЂ Р·РЅР°С‡: %f\n\n", av);
 
     for (int i = 0; i < n; i++) {
         if (a[i] > av) {
@@ -112,7 +112,7 @@ void task3() {
     }
     FILE* fout = fopen("out3.txt", "wt");
     if (fout == NULL) {
-        printf("выходной не создан");
+        printf("РІС‹С…РѕРґРЅРѕР№ РЅРµ СЃРѕР·РґР°РЅ");
         return;
     }
     fprintf(fout, "%d\n", n);
@@ -129,7 +129,7 @@ void task4() {
 
     FILE* fin = fopen("in4.txt", "rt");
     if (fin == NULL) {
-        printf("входной не найден");
+        printf("РІС…РѕРґРЅРѕР№ РЅРµ РЅР°Р№РґРµРЅ");
         return;
     }
     fscanf(fin, "%d\n", &n);
@@ -144,7 +144,7 @@ void task4() {
         av += a[i];
     }
     av = av / n;
-    printf("ср знач: %f\n\n", av);
+    printf("СЃСЂ Р·РЅР°С‡: %f\n\n", av);
 
     for (int i = 0; i < n; i++) {
         if (a[i] % 2 == 0) {
@@ -163,7 +163,7 @@ void task4() {
 
     FILE* fout = fopen("out4.txt", "wt");
     if (fout == NULL) {
-        printf("выходной не создан");
+        printf("РІС‹С…РѕРґРЅРѕР№ РЅРµ СЃРѕР·РґР°РЅ");
         return;
     }
     fprintf(fout, "%d\n", n);
